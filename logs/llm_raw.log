@@ -1,0 +1,170 @@
+==== 2025-08-12T20:01:04+05:45 CHAT ====
+STATUS: 200
+PROMPT:
+SYSTEM:
+You output only JSON like {"sql":"SELECT ..."}.
+Rules:
+- Single SELECT, no semicolons.
+- Use only provided schema (table.column:type).
+- Prefer SELECT * unless the user asked for specific columns.
+- If a column type is character varying/text/uuid/date/time/timestamp, quote the literal: e.g. WHERE lab_id = '6666'.
+- Include LIMIT 100 unless user asked otherwise.
+
+USER:
+Example:
+Schema:
+- public.patient_tests [lab_id:character varying, patient_id:bigint]
+User question: give me all data of patient whose lab_id is 6666
+JSON:
+{"sql":"SELECT * FROM public.patient_tests WHERE lab_id = '6666' LIMIT 100"}
+
+Schema:
+- public.analyzer_orders [lab_id:character varying, test_name_id:bigint, test_id:bigint, patient_test_id:bigint, patient_test_detail_id:bigint]
+- public.analyzer_results [patient_test_detail_id:bigint]
+- public.analyzer_test [department_id:bigint, test_name_id:bigint, test_id:bigint, analyzer_id:bigint, analyte_code:character varying, active:boolean, analyte_code_id:bigint, archived_by:bigint, archived_at:timestamp without time zone, created_at:timestamp without time zone, updated_at:timestamp without time zone, id:bigint]
+- public.antibiotic_results [patient_test_id:bigint, test_name_id:bigint, test_name:character varying, inpatient_id:integer, lab_id:character varying, patient_test_detail_id:bigint]
+- public.department_patient_types [id:bigint, tat_start_status:character varying, tat_end_status:character varying, created_by:bigint, updated_by:bigint, organization_id:bigint, sub_organization_id:bigint, archived_by:bigint, archived_at:timestamp without time zone, created_at:timestamp without time zone, updated_at:timestamp without time zone, patient_type:character varying]
+- public.end_notes [test_name_id:bigint]
+- public.finding_contents [test_name_id:bigint]
+- public.finding_templates [test_name_id:bigint]
+- public.jobs [available_at:integer]
+- public.lab_queue_managements [id:bigint, patient_test_id:bigint, patient_id:bigint, lab_id:character varying, to…(truncated)
+RAW:
+{"choices":[{"finish_reason":"stop","index":0,"message":{"role":"assistant","content":"{\n \"sql\":\"SELECT * FROM public.patient_tests WHERE lab_id = '6666' LIMIT 100\"\n}\n\n"}}],"created":1755008164,"model":"gpt-3.5-turbo","system_fingerprint":"b6139-f4586ee5","object":"chat.completion","usage":{"completion_tokens":38,"prompt_tokens":1376,"total_tokens":1414},"id":"chatcmpl-MbIEZVjAop2R9hidzjKE8kyv4qzgUuBQ","timings":{"prompt_n":1240,"prompt_ms":72113.33,"prompt_per_token_ms":58.155911290322585,"prompt_per_second":17.19515656814073,"predicted_n":38,"predicted_ms":14587.792,"predicted_per_token_ms":383.88926315789473,"predicted_per_second":2.6049178655686895}}
+
+==== 2025-08-12T22:17:59+05:45 CHAT ====
+STATUS: 200
+PROMPT:
+SYSTEM:
+You output only JSON like {"sql":"SELECT ..."}.
+Rules:
+- Single SELECT, no semicolons.
+- Use only provided schema (table.column:type).
+- Prefer SELECT * unless the user asked for specific columns.
+- If a column type is character varying/text/uuid/date/time/timestamp, quote the literal: e.g. WHERE lab_id = '6666'.
+- Include LIMIT 100 unless user asked otherwise.
+
+USER:
+Example:
+Schema:
+- public.patient_tests [lab_id:character varying, patient_id:bigint]
+User question: give me all data of patient whose lab_id is 6666
+JSON:
+{"sql":"SELECT * FROM public.patient_tests WHERE lab_id = '6666' LIMIT 100"}
+
+Schema:
+- public.analyzer_orders [lab_id:character varying, test_name_id:bigint, test_id:bigint, patient_test_id:bigint, patient_test_detail_id:bigint]
+- public.analyzer_results [patient_test_detail_id:bigint]
+- public.analyzer_test [department_id:bigint, test_name_id:bigint, test_id:bigint, analyzer_id:bigint, analyte_code:character varying, active:boolean, analyte_code_id:bigint, archived_by:bigint, archived_at:timestamp without time zone, created_at:timestamp without time zone, updated_at:timestamp without time zone, id:bigint]
+- public.antibiotic_results [patient_test_id:bigint, test_name_id:bigint, test_name:character varying, inpatient_id:integer, lab_id:character varying, patient_test_detail_id:bigint]
+- public.department_patient_types [id:bigint, tat_start_status:character varying, tat_end_status:character varying, created_by:bigint, updated_by:bigint, organization_id:bigint, sub_organization_id:bigint, archived_by:bigint, archived_at:timestamp without time zone, created_at:timestamp without time zone, updated_at:timestamp without time zone, patient_type:character varying]
+- public.end_notes [test_name_id:bigint]
+- public.finding_contents [test_name_id:bigint]
+- public.finding_templates [test_name_id:bigint]
+- public.jobs [available_at:integer]
+- public.lab_queue_managements [id:bigint, patient_test_id:bigint, patient_id:bigint, lab_id:character varying, to…(truncated)
+RAW:
+{"choices":[{"finish_reason":"stop","index":0,"message":{"role":"assistant","content":"{\n \"sql\":\"SELECT * FROM public.patient_tests WHERE lab_id = '6666' LIMIT 100\"\n}\n\n"}}],"created":1755016379,"model":"gpt-3.5-turbo","system_fingerprint":"b6139-f4586ee5","object":"chat.completion","usage":{"completion_tokens":38,"prompt_tokens":1376,"total_tokens":1414},"id":"chatcmpl-rAaDrhGzFw7m1L4d4fqYAaQaBi1GZDBc","timings":{"prompt_n":1,"prompt_ms":12058.422,"prompt_per_token_ms":12058.422,"prompt_per_second":0.08292959062139307,"predicted_n":38,"predicted_ms":15050.769,"predicted_per_token_ms":396.07286842105265,"predicted_per_second":2.5247879360848606}}
+
+==== 2025-08-13T19:11:07+05:45 CHAT ====
+STATUS: 200
+PROMPT:
+SYSTEM:
+You output only JSON like {"sql":"SELECT ..."}.
+Rules:
+- Single SELECT, no semicolons.
+- Use only provided schema (table.column:type).
+- Prefer SELECT * unless the user asked for specific columns.
+- If a column type is character varying/text/uuid/date/time/timestamp, quote the literal: e.g. WHERE lab_id = '6666'.
+- Include LIMIT 100 unless user asked otherwise.
+
+USER:
+Example:
+Schema:
+- public.patient_tests [lab_id:character varying, patient_id:bigint]
+User question: give me all data of patient whose lab_id is 6666
+JSON:
+{"sql":"SELECT * FROM public.patient_tests WHERE lab_id = '6666' LIMIT 100"}
+
+Schema:
+- public.analyzer_orders [lab_id:character varying, test_name_id:bigint, test_id:bigint, patient_test_id:bigint, patient_test_detail_id:bigint]
+- public.analyzer_results [patient_test_detail_id:bigint]
+- public.analyzer_test [department_id:bigint, test_name_id:bigint, test_id:bigint, analyzer_id:bigint, analyte_code:character varying, active:boolean, analyte_code_id:bigint, archived_by:bigint, archived_at:timestamp without time zone, created_at:timestamp without time zone, updated_at:timestamp without time zone, id:bigint]
+- public.antibiotic_results [patient_test_id:bigint, test_name_id:bigint, test_name:character varying, inpatient_id:integer, lab_id:character varying, patient_test_detail_id:bigint]
+- public.department_patient_types [id:bigint, tat_start_status:character varying, tat_end_status:character varying, created_by:bigint, updated_by:bigint, organization_id:bigint, sub_organization_id:bigint, archived_by:bigint, archived_at:timestamp without time zone, created_at:timestamp without time zone, updated_at:timestamp without time zone, patient_type:character varying]
+- public.end_notes [test_name_id:bigint]
+- public.finding_contents [test_name_id:bigint]
+- public.finding_templates [test_name_id:bigint]
+- public.jobs [available_at:integer]
+- public.lab_queue_managements [id:bigint, patient_test_id:bigint, patient_id:bigint, lab_id:character varying, to…(truncated)
+RAW:
+{"choices":[{"finish_reason":"stop","index":0,"message":{"role":"assistant","content":"{\"sql\":\"SELECT * FROM public.patient_tests WHERE lab_id = '6666' LIMIT 100\"}\n\n"}}],"created":1755091567,"model":"gpt-3.5-turbo","system_fingerprint":"b6139-f4586ee5","object":"chat.completion","usage":{"completion_tokens":35,"prompt_tokens":1376,"total_tokens":1411},"id":"chatcmpl-bjyzdee7l63mubVBFxQ6ObQvgkbyOE7J","timings":{"prompt_n":1,"prompt_ms":37602.794,"prompt_per_token_ms":37602.794,"prompt_per_second":0.02659376853751878,"predicted_n":35,"predicted_ms":14322.972,"predicted_per_token_ms":409.22777142857143,"predicted_per_second":2.4436269232391155}}
+
+==== 2025-08-13T19:14:08+05:45 CHAT ====
+STATUS: 200
+PROMPT:
+SYSTEM:
+You output only JSON like {"sql":"SELECT ..."}.
+Rules:
+- Single SELECT, no semicolons.
+- Use only provided schema (table.column:type).
+- Prefer SELECT * unless the user asked for specific columns.
+- If a column type is character varying/text/uuid/date/time/timestamp, quote the literal: e.g. WHERE lab_id = '6666'.
+- Include LIMIT 100 unless user asked otherwise.
+
+USER:
+Example:
+Schema:
+- public.patient_tests [lab_id:character varying, patient_id:bigint]
+User question: give me all data of patient whose lab_id is 6666
+JSON:
+{"sql":"SELECT * FROM public.patient_tests WHERE lab_id = '6666' LIMIT 100"}
+
+Schema:
+- public.analyzer_orders [lab_id:character varying, test_name_id:bigint, test_id:bigint, patient_test_id:bigint, patient_test_detail_id:bigint]
+- public.analyzer_results [patient_test_detail_id:bigint]
+- public.analyzer_test [department_id:bigint, test_name_id:bigint, test_id:bigint, analyzer_id:bigint, analyte_code:character varying, active:boolean, analyte_code_id:bigint, archived_by:bigint, archived_at:timestamp without time zone, created_at:timestamp without time zone, updated_at:timestamp without time zone, id:bigint]
+- public.antibiotic_results [patient_test_id:bigint, test_name_id:bigint, test_name:character varying, inpatient_id:integer, lab_id:character varying, patient_test_detail_id:bigint]
+- public.department_patient_types [id:bigint, tat_start_status:character varying, tat_end_status:character varying, created_by:bigint, updated_by:bigint, organization_id:bigint, sub_organization_id:bigint, archived_by:bigint, archived_at:timestamp without time zone, created_at:timestamp without time zone, updated_at:timestamp without time zone, patient_type:character varying]
+- public.end_notes [test_name_id:bigint]
+- public.finding_contents [test_name_id:bigint]
+- public.finding_templates [test_name_id:bigint]
+- public.jobs [available_at:integer]
+- public.lab_queue_managements [id:bigint, patient_test_id:bigint, patient_id:bigint, lab_id:character varying, to…(truncated)
+RAW:
+{"choices":[{"finish_reason":"stop","index":0,"message":{"role":"assistant","content":"{\n \"sql\":\"SELECT * FROM public.patient_tests WHERE lab_id = '6666' LIMIT 100\"\n}\n\n"}}],"created":1755091748,"model":"gpt-3.5-turbo","system_fingerprint":"b6139-f4586ee5","object":"chat.completion","usage":{"completion_tokens":38,"prompt_tokens":1376,"total_tokens":1414},"id":"chatcmpl-d3mZ0qK4tT2eoQ1hG77yVKrlmzqeLnig","timings":{"prompt_n":1,"prompt_ms":362.457,"prompt_per_token_ms":362.457,"prompt_per_second":2.758947957964669,"predicted_n":38,"predicted_ms":12571.004,"predicted_per_token_ms":330.81589473684215,"predicted_per_second":3.0228293619189044}}
+
+==== 2025-08-13T19:16:05+05:45 CHAT ====
+STATUS: 200
+PROMPT:
+SYSTEM:
+You output only JSON like {"sql":"SELECT ..."}.
+Rules:
+- Single SELECT, no semicolons.
+- Use only provided schema (table.column:type).
+- Prefer SELECT * unless the user asked for specific columns.
+- If a column type is character varying/text/uuid/date/time/timestamp, quote the literal: e.g. WHERE lab_id = '6666'.
+- Include LIMIT 100 unless user asked otherwise.
+
+USER:
+Example:
+Schema:
+- public.patient_tests [lab_id:character varying, patient_id:bigint]
+User question: give me all data of patient whose lab_id is 6666
+JSON:
+{"sql":"SELECT * FROM public.patient_tests WHERE lab_id = '6666' LIMIT 100"}
+
+Schema:
+- public.analyzer_orders [lab_id:character varying, test_name_id:bigint, test_id:bigint, patient_test_id:bigint, patient_test_detail_id:bigint]
+- public.analyzer_results [patient_test_detail_id:bigint]
+- public.analyzer_test [department_id:bigint, test_name_id:bigint, test_id:bigint, analyzer_id:bigint, analyte_code:character varying, active:boolean, analyte_code_id:bigint, archived_by:bigint, archived_at:timestamp without time zone, created_at:timestamp without time zone, updated_at:timestamp without time zone, id:bigint]
+- public.antibiotic_results [patient_test_id:bigint, test_name_id:bigint, test_name:character varying, inpatient_id:integer, lab_id:character varying, patient_test_detail_id:bigint]
+- public.department_patient_types [id:bigint, tat_start_status:character varying, tat_end_status:character varying, created_by:bigint, updated_by:bigint, organization_id:bigint, sub_organization_id:bigint, archived_by:bigint, archived_at:timestamp without time zone, created_at:timestamp without time zone, updated_at:timestamp without time zone, patient_type:character varying]
+- public.end_notes [test_name_id:bigint]
+- public.finding_contents [test_name_id:bigint]
+- public.finding_templates [test_name_id:bigint]
+- public.jobs [available_at:integer]
+- public.lab_queue_managements [id:bigint, patient_test_id:bigint, patient_id:bigint, lab_id:character varying, to…(truncated)
+RAW:
+{"choices":[{"finish_reason":"stop","index":0,"message":{"role":"assistant","content":"{\n \"sql\": \"SELECT * FROM public.patient_tests WHERE lab_id = '6666' LIMIT 100\"\n}\n\n"}}],"created":1755091865,"model":"gpt-3.5-turbo","system_fingerprint":"b6149-c24f4e26","object":"chat.completion","usage":{"completion_tokens":39,"prompt_tokens":1376,"total_tokens":1415},"id":"chatcmpl-kP8dY1ribeuzQJz5FbY0bLROHHVuhaUO","timings":{"prompt_n":1376,"prompt_ms":94782.607,"prompt_per_token_ms":68.8827085755814,"prompt_per_second":14.517431452376066,"predicted_n":39,"predicted_ms":16136.86,"predicted_per_token_ms":413.76564102564106,"predicted_per_second":2.416827065488577}}
+
