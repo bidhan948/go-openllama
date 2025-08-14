@@ -1,1 +1,58 @@
-./nlq-server
+# Go
+/bin/
+/dist/
+/coverage/
+/*.test
+*.out
+*.coverprofile
+
+# Build artifacts
+/nlq-server
+*.exe
+*.dll
+*.so
+*.dylib
+*.a
+*.o
+
+# Logs & runtime
+/logs/
+/*.log
+*.log
+*.pid
+
+# Env & secrets
+.env
+.env.*
+!.env.example
+
+# Models & large weights
+/models/
+/gguf_models/
+*.gguf
+*.safetensors
+*.pt
+*.pth
+*.bin
+
+# llama.cpp (if kept inside repo)
+llama.cpp/build/
+llama.cpp/.venv/
+llama.cpp/**/CMakeCache.txt
+llama.cpp/**/CMakeFiles/
+llama.cpp/**/cmake_install.cmake
+
+# Python venvs (just in case)
+.venv/
+venv/
+__pycache__/
+
+# Editors/OS
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Misc
+node_modules/

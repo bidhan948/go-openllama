@@ -30,7 +30,7 @@ Create `.env` in this folder:
 
 ```env
 # REQUIRED
-POSTGRES_URL=postgres://postgres:password@172.16.50.70:5439/lab?sslmode=disable
+POSTGRES_URL=postgres://postgres:password@0.0.0.0:5439/lab?sslmode=disable
 LLM_HOST=http://127.0.0.1:8080
 
 # OPTIONAL TUNING
